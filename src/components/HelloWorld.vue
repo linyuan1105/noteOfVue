@@ -22,6 +22,8 @@
     <router-link to="mixin">查看mixin的用法</router-link><br/>
     <router-link to="compile">查看compile的用法</router-link><br/>
     <router-link to="slot_scope">查看slot_scope的用法</router-link><br/>
+    <router-link to="parent">查看路由嵌套的使用</router-link><br/>
+    <router-link to="home">查看element项目</router-link><br/>
   </div>
   
 </template>

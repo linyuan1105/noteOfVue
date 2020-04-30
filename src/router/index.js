@@ -14,11 +14,70 @@ import myvuex from '@/Vuex/vuex.vue'
 import mixin from '@/Mixin/mixin.vue'
 import compile from '@/compile/compile.vue'
 import slot_scope from '@/slot-scope/slot-scope.vue'
+import parent from '@/note/parent/parent.vue'
+import childrenA from '@/note/children/childrenA.vue'
+import childrenB from '@/note/children/childrenB.vue'
+//element项目的组件
+import home from '@/note/elementProject/home/home.vue'
+import componentA from '@/note/elementProject/component/componentA.vue'
+import slot from '@/note/elementProject/component/slot.vue'
+import httpService from '@/note/elementProject/httpService/httpService.vue'
+import nodeNote from '@/note/elementProject/httpService/nodeNote.vue'
+import Algorithm from '@/note/Algorithm/Algorithm.vue'
 
 Vue.use(Router)
 
 export default new Router({
   routes: [
+    {
+      path: '/home',
+      name: 'home',
+      component: home,
+      children:[
+        {
+          path: 'Algorithm',
+          name: 'Algorithm',
+          component: Algorithm
+        },
+        {
+          path: 'nodeNote',
+          name: 'nodeNote',
+          component: nodeNote
+        },
+        {
+          path: 'componentA',
+          name: 'componentA',
+          component: componentA
+        },
+        {
+          path: 'slot',
+          name: 'slot',
+          component: slot
+        },
+        {
+          path: 'httpService',
+          name: 'httpService',
+          component: httpService
+        }
+      ]
+    },
+    {
+      path: '/parent',
+      name: 'parent',
+      component: parent,
+      children:[
+        {
+          path: 'childrenA',
+          name: 'childrenA',
+          component: childrenA
+        },
+        {
+          path: 'childrenB',
+          name: 'childrenB',
+          component: childrenB
+        }
+      ]
+    },
     {
       path: '/slot_scope',
       name: 'slot_scope',

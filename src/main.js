@@ -7,6 +7,13 @@ import Vuex from 'vuex';
 import mystore from '@/Vuex/vuex.js'
 import testApp from './testApp'
 import myPlugin from '@/plugin/myPlugin.js'
+import ElementUI from 'element-ui';
+import 'element-ui/lib/theme-chalk/index.css';
+import axios from 'axios'
+import VueAxios from 'vue-axios'
+import library from './Library.js'
+import Router from 'vue-router'
+console.log(library)
 //我猜想的vuex实现思路，
 //首先由于事件有promise，所以猜测会使用一个vue实例作为一个bus总线
 //结合emit和on建立发布订阅的事件模型
@@ -19,6 +26,9 @@ import myPlugin from '@/plugin/myPlugin.js'
 //vuex插件相对比较复杂，但是基本的写作原理是这样的。所以
 Vue.use(myPlugin)
 Vue.use(Vuex)
+Vue.use(ElementUI)
+Vue.use(Router)
+Vue.use(VueAxios,axios)
 const store = new Vuex.Store(mystore)
 Vue.prototype.func = function(){
   console.log("与插件类似的方法")

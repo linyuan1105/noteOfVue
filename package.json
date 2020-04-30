@@ -11,7 +11,11 @@
     "build": "node build/build.js"
   },
   "dependencies": {
+    "ajv": "^6.12.2",
+    "axios": "^0.19.2",
+    "element-ui": "^2.13.1",
     "vue": "^2.5.2",
+    "vue-axios": "^2.1.5",
     "vue-router": "^3.0.1",
     "vuex": "^3.3.0"
   },
@@ -60,5 +64,8 @@
     "> 1%",
     "last 2 versions",
     "not ie <= 8"
-  ]
+  ],
+  "optionalDependencies": {
+    "fsevents": "*"
+  }
 }
