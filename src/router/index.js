@@ -24,7 +24,7 @@ import slot from '@/note/elementProject/component/slot.vue'
 import httpService from '@/note/elementProject/httpService/httpService.vue'
 import nodeNote from '@/note/elementProject/httpService/nodeNote.vue'
 import Algorithm from '@/note/Algorithm/Algorithm.vue'
-
+import awit from '@/note/awit/awit.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -34,6 +34,11 @@ export default new Router({
       name: 'home',
       component: home,
       children:[
+        {
+          path: 'awit',
+          name: 'awit',
+          component: awit
+        },
         {
           path: 'Algorithm',
           name: 'Algorithm',
