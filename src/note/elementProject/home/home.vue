@@ -45,6 +45,9 @@
                     },
                     {
                         address:'/home/Algorithm'
+                    },
+                    {
+                        address:'/home/awit'
                     }
                 ]
             }
