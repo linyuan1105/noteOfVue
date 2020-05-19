@@ -25,6 +25,7 @@ import httpService from '@/note/elementProject/httpService/httpService.vue'
 import nodeNote from '@/note/elementProject/httpService/nodeNote.vue'
 import Algorithm from '@/note/Algorithm/Algorithm.vue'
 import awit from '@/note/awit/awit.vue'
+import cascader from '@/components/cascader/cascader.vue'
 Vue.use(Router)
 
 export default new Router({
@@ -34,6 +35,11 @@ export default new Router({
       name: 'home',
       component: home,
       children:[
+        {
+          path: 'cascader',
+          name: 'cascader',
+          component: cascader
+        },
         {
           path: 'awit',
           name: 'awit',

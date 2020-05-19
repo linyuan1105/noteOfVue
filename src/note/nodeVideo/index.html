@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button onclick="getFileData()">getFileData</button>
+    <video src="./renameTest.mp4" controls="controls"></video>
+    <script>
+        function getFileData(){
+          let xhr = new XMLHttpRequest()
+          xhr.open("get",'./fileoprations.js')
+          xhr.send()
+          console.log(xhr.responseText)
+        }
+        function insertSort(arr){
+   
+   //从第二个数开始，依次插入
+   for(let i=0;i<arr.length;i++){
+       if(arr[i+1]<arr[i]){
+           let current = arr[i]
+           let j =i-1
+           
+           while(j>0&&current<arr[j]){
+               arr[j+1]=arr[j]
+               j--
+           }
+           arr[j+1]=current
+       }
+   }
+   return arr
+}
+let arr = [6,2,1,7]
+console.log(insertSort(arr))
+
+
+
+function mergeSort(arr, start, end) {
+    if (start >= end) {
+        return;
+    }
+    let mid = start + parseInt((end - start) / 2);
+    mergeSort(arr, start, mid);
+    mergeSort(arr, mid + 1, end);
+    merge(arr, start, mid, end);
+}
+
+function merge(arr, start, mid, end) {
+    debugger
+    let temp = [];
+    let len = 0;
+    let i = start, j = mid + 1;
+    for (; i <= mid && j <= end;) {
+        if (arr[i] > arr[j]) {
+            temp[len++] = arr[j++];
+        } else {
+            temp[len++] = arr[i++];
+        }
+    }
+    while (i <= mid) {
+        temp[len++] = arr[i++];
+    }
+    while (j <= end) {
+        temp[len++] = arr[j++];
+    }
+    for (let t = 0; t < len; t++) {
+        arr[t + start] = temp[t];
+    }
+}
+
+let arr0fmerge = [3,2,1,5];
+
+ console.log(mergeSort(arr0fmerge , 0 , 3)) 
+ console.log(arr0fmerge)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .parent{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 1000px;
+            width: 1000px;
+        }
+        .sub{
+            width: 100px;
+            height: 100px;
+            background-color:red;
+        } */
+        .parent{
+            width: 500px;
+        height: 300px;
+        background-color: skyblue;
+        position: relative;
+
+        }
+        .sub{
+            width: 100px;
+        height: 100px;
+        background-color: green;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        margin-left: -50px;
+        margin-top: -50px;
+
+
+        }
+        .trangel{
+            width: 0px;
+            height: 0px;
+            border-left: 50px solid yellow;
+            border-top: 50px solid red;
+            border-right:50px solid blue ;
+            border-bottom: 50px solid green;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="sub">
+
+        </div>
+    </div>
+    <div class="trangel">
+
+    </div>
+    <img src="" class="trangle" alt="">
+</body>
+<script>
+    var person = {
+        toString:function(){
+            return "sdsd"
+        }
+    }
+    let arr = [1,2,3,4,5]
+    let res = arr.reduce(function(pre,cur,index,arr){
+        let res = cur+pre
+        console.log(res)
+        return res
+    },100)
+    let date = new Date()
+    console.log(date.toString())
+    console.log(date.toLocaleDateString())
+
+
+
+</script>
+</html>

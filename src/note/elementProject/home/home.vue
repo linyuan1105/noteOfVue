@@ -48,6 +48,9 @@
                     },
                     {
                         address:'/home/awit'
+                    },
+                    {
+                        address:'/home/cascader'
                     }
                 ]
             }

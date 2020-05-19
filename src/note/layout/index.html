@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .con0{
+            height: 900px;
+            position: absolute;
+            background-color: #005599;
+        }
+        .con1{
+            height: 700px;
+            position: absolute;
+            top: 50px;
+            background-color: #00B4F5;
+        }
+        .con2{
+            top: 50px;
+            height: 900px;
+            position: relative;
+            background-color: #2D7091;
+        }
+        .box1{
+            height: 100px;
+            background-color: red;
+
+        }
+        .box2{
+            height: 100px;
+            background-color:green;
+            
+        }
+        .box3{
+            height: 100px;
+            background-color:blue;
+            
+        }
+        .box4{
+            height: 100px;
+            background-color: yellow;
+            
+        }
+        .box5{
+            height: 100px;
+            background-color: cyan;
+            position: absolute;
+            top: 50px;
+            left: 50px;
+            
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="con0">容器1111111111111111
+        <div class="con1">容器2222222222222222222222222222
+            <div class="con2">
+                <div class="box1">box11111111111111111111</div>
+                <div class="box2">box2222222222222222</div>
+                <div class="box3">box3333333333333333</div>
+                <div class="box4">box444444444444444444</div>
+                <div class="box5">box55555555555555555</div>
+                容器3333333333333333333333333333
+            </div>
+        </div>
+    </div>
+    <script>
+        function add(){
+            console.log(arguments)
+        }
+        function add() {
+    // 第一次执行时，定义一个数组专门用来存储所有的参数
+    console.log(arguments)
+    var _args = Array.prototype.slice.call(arguments);
+console.log(_args)
+    // 在内部声明一个函数，利用闭包的特性保存_args并收集所有的参数值
+    var _adder = function() {
+        _args.push(...arguments);
+        return _adder;
+    };
+console.log(-_adder)
+    // 利用toString隐式转换的特性，当最后执行时隐式转换，并计算最终的值返回
+    _adder.toString = function () {
+        return _args.reduce(function (a, b) {
+            return a + b;
+        });
+    }
+    return _adder;
+}
+
+ console.log(add(1)(2)(3)(56,89))    
+let a = {}
+function nn(){
+    let qs='dfdf'
+    with(location){
+        var url = href+qs
+    }
+    return url
+}
+
+function aa(){
+    var m =100
+    function bb(){
+        var nnn = 1000
+    }
+    bb()
+}
+
+if(true){
+    var ooo = 111
+    
+    if(true){
+        var ppp = 222
+        let iii = 333
+    }
+    console.log(ppp)
+}
+console.log(ooo,ppp)
+let arr = Array(1,"s","5")
+console.log(arr)
+
+
+    </script>
+</body>
+</html>

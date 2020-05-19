@@ -24,6 +24,7 @@
     <router-link to="slot_scope">查看slot_scope的用法</router-link><br/>
     <router-link to="parent">查看路由嵌套的使用</router-link><br/>
     <router-link to="home">查看element项目</router-link><br/>
+    <a href="https://www.runoob.com/w3cnote/css-position-static-relative-absolute-fixed.html">position基础</a>
   </div>
   
 </template>

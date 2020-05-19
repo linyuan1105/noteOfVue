@@ -91,16 +91,65 @@ function openFileByUrl(url){
     return fileContent
     
 }
+//发送文件到客户端
+function fileSendToClient(){
+    http.createServer((req,res)=>{
+        res.setHeader("Access-Control-Allow-Origin","*")
+        let fileContent = openFileByUrl('file:///F:/note/noteOfVue/src/note/nodeVideo/test.txt')
+        res.end(fileContent)
+    }).listen(8000,()=>{
+        console.log('8000端口可监听')
+    })
+}
+//表示目录流的类
+async function print(path) {
+    const dir = await fs.promises.opendir(path);
+    for await (const dirent of dir) {
+      console.log(dirent.name);
+    }
+  }
+  //print('./').catch(console.error);
+// fileoprations.js
+// index.html
+// renameTest.mp4
+// service.js
+// test.txt
 
-http.createServer((req,res)=>{
-    let fileContent = openFileByUrl('file:///D:/vue-source-code-study/noteOfVue/src/note/nodeVideo/test.txt')
-    res.end(fileContent)
-}).listen(8000,()=>{
-    console.log('8000端口可监听')
-})
+// function Foo(){
+//     getname = function(){console.log(1)}
+//     return this
+// }
+// Foo.getname = function(){
+//     console.log(2)
+// }
 
+// Foo.prototype.getname=function(){
+//     console.log(3)
+// }
+// var getname = function(){
+//     console.log(4)
+// }
+// function getname(){
+//     console.log(5)
+// }
+// Foo.getname()//2 ok
+// getname()//4
+// //Foo().getname()
+// getname()//4
+// new Foo.getname()//2
+// new Foo().getname()/3
+// new new Foo().getname()//3
+// console.log(this)
 
-
+// function test(name){
+//     this.name=name
+//     return {
+//         age:16
+//     }
+// }
+// let res = new test('xialin')
+// console.log(res)
+// console.log(new test('linyuan'))
 
 
 
