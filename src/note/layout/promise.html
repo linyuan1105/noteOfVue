@@ -1,0 +1,19 @@
+<script>
+function sleep(second) {
+    return new Promise((resolve, reject) => {
+        setTimeout(() => {
+            resolve('request done! ' + Math.random());
+        }, second);
+    })
+}
+async function correctDemo() {
+    let p1 = sleep(1000);
+    let p2 = sleep(1000);
+    let p3 = sleep(1000);
+    let res = await Promise.all([p1, p2, p3]);
+    console.log('clear the loading~');
+    console.log(res)
+}
+correctDemo();// clear the loading~
+
+</script>

@@ -3,22 +3,23 @@ import Router from 'vue-router'
 import HelloWorld from '@/components/HelloWorld'
 import EmitOff from '@/emitAndOff/emitAndOffFunc.vue'
 import mountComponent from '@/$mount/$mount.vue'
-import forceUpdate from '@/forceUpdate/forceUpdate'
-import nextTick from '@/nextTick/nextTick'
-import destroy from '@/destroy/destroy'
-import extend from '@/VueExtend/extend'
-import directive from '@/directive/directive'
-import filter from '@/filter/filter.vue'
-import plugin from '@/plugin/plugin.vue'
-import myvuex from '@/Vuex/vuex.vue'
-import mixin from '@/Mixin/mixin.vue'
-import compile from '@/compile/compile.vue'
-import slot_scope from '@/slot-scope/slot-scope.vue'
-import parent from '@/note/parent/parent.vue'
-import childrenA from '@/note/children/childrenA.vue'
-import childrenB from '@/note/children/childrenB.vue'
+const forceUpdate = ()=>import('@/forceUpdate/forceUpdate')
+const nextTick=()=>import('@/nextTick/nextTick')  
+const destroy =()=>import('@/destroy/destroy')
+const extend =()=>import ('@/VueExtend/extend')
+const directive=()=>import ('@/directive/directive')
+const filter =()=>import ('@/filter/filter.vue')
+const plugin =()=>import ( '@/plugin/plugin.vue')
+const myvuex =()=>import ( '@/Vuex/vuex.vue')
+const mixin =()=>import ( '@/Mixin/mixin.vue')
+const element =()=>import ( '@/element/index.vue')
+const compile =()=>import ( '@/compile/compile.vue')
+const slot_scope =()=>import ( '@/slot-scope/slot-scope.vue')
+const parent =()=>import ( '@/note/parent/parent.vue')
+const childrenA =()=>import ( '@/note/children/childrenA.vue')
+const childrenB =()=>import ( '@/note/children/childrenB.vue')
 //element项目的组件
-import home from '@/note/elementProject/home/home.vue'
+const home =()=>import ( '@/note/elementProject/home/home.vue')
 import componentA from '@/note/elementProject/component/componentA.vue'
 import slot from '@/note/elementProject/component/slot.vue'
 import httpService from '@/note/elementProject/httpService/httpService.vue'
@@ -26,15 +27,52 @@ import nodeNote from '@/note/elementProject/httpService/nodeNote.vue'
 import Algorithm from '@/note/Algorithm/Algorithm.vue'
 import awit from '@/note/awit/awit.vue'
 import cascader from '@/components/cascader/cascader.vue'
+import compvswatch from '@/compvaswatch/index.vue'
+import fail from './fail.vue'
+import foo from './foo.vue'
+import bar from './bar.vue'
+import defaultA from './default.vue'
+import testRouterMode from '@/testhash/index.vue'
+console.log(compvswatch,1111111111111)
 Vue.use(Router)
 
 export default new Router({
+  mode:'hash',
   routes: [
+    {
+      path: '/testRouterMode',
+      name: 'testRouterMode',
+      component: resolve=>(require(["@/testhash/index.vue"],resolve))
+    },
+    {
+      path:'/fail',
+      components:{
+        default:defaultA,
+        bar:bar,
+        foo:foo
+      },
+      beforeEnter:(to,from,next)=>{
+        console.log(to,'to')
+        console.log(from,'from')
+        next()
+      }
+    },
+    {
+      path: '/element',
+      name: 'element',
+      component: resolve=>(require(["@/element/index.vue"],resolve))
+    },
     {
       path: '/home',
       name: 'home',
       component: home,
       children:[
+        
+        {
+          path: 'compvswatch',
+          name: 'compvswatch',
+          component: compvswatch
+        },
         {
           path: 'cascader',
           name: 'cascader',

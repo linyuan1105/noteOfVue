@@ -4,77 +4,107 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <style>
-        /* .parent{
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 1000px;
-            width: 1000px;
-        }
-        .sub{
-            width: 100px;
-            height: 100px;
-            background-color:red;
-        } */
-        .parent{
-            width: 500px;
-        height: 300px;
-        background-color: skyblue;
-        position: relative;
-
-        }
-        .sub{
-            width: 100px;
-        height: 100px;
-        background-color: green;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        margin-left: -50px;
-        margin-top: -50px;
-
-
-        }
-        .trangel{
-            width: 0px;
-            height: 0px;
-            border-left: 50px solid yellow;
-            border-top: 50px solid red;
-            border-right:50px solid blue ;
-            border-bottom: 50px solid green;
-
-        }
-    </style>
 </head>
 <body>
-    <div class="parent">
-        <div class="sub">
+    <script type="text/javascript">
+ 
+ function a(){
+var i=0;
+function b(){
+alert(++i);
+}
+return i;
+}
+var c=a();
 
-        </div>
-    </div>
-    <div class="trangel">
-
-    </div>
-    <img src="" class="trangle" alt="">
-</body>
-<script>
-    var person = {
-        toString:function(){
-            return "sdsd"
-        }
+let m =(function(){
+    return function(){
+        return 6
     }
-    let arr = [1,2,3,4,5]
-    let res = arr.reduce(function(pre,cur,index,arr){
-        let res = cur+pre
-        console.log(res)
-        return res
-    },100)
-    let date = new Date()
-    console.log(date.toString())
-    console.log(date.toLocaleDateString())
+})()
+let nn =m
+function curry(fn){
+    let args = Array.prototype.slice.call(arguments,1)
+    console.log(arguments,111)
+    return function(){
+        var innerArgs = Array.prototype.slice.call(arguments)
+       
+        var finnalArgs = args.concat(innerArgs)
+        console.log(arguments,'arguments',innerArgs,'innerArgs',finnalArgs,'finnalArgs')
+        return fn.apply(null,finnalArgs)
+    }
+    
+}
+function myadd(num1,num2){
+    return num1+num2
+}
+let res = curry(myadd,5,64)
+console.log(res(78),58858)
 
 
 
-</script>
+
+curry(333)
+let ppa = [1,2,5]
+console.log(ppa.slice())
+console.log(ppa)
+function add() {
+    // 第一次执行时，定义一个数组专门用来存储所有的参数
+    var _args = Array.prototype.slice.call(arguments);
+
+    // 在内部声明一个函数，利用闭包的特性保存_args并收集所有的参数值
+    var _adder = function() {
+        _args.push(...arguments);
+        console.log(_args)
+        return _adder;
+    };
+    console.log(_args,5555)
+    // 利用toString隐式转换的特性，当最后执行时隐式转换，并计算最终的值返回
+    _adder.toString = function () {
+        return _args.reduce(function (a, b) {
+            return a + b;
+        });
+    }
+    return _adder;
+}
+const dsa =[1,5,6]
+dsa[9]=100
+console.log(dsa,5555) 
+console.log(add(1)(2)(3)(4)(5)())
+function* mynumbers(){
+    for(let i=0;i<10;i++){
+        yield i*2
+    }
+}
+
+var generator = mynumbers()
+console.log(generator.next())
+console.log(generator.next())
+console.log(generator.next())
+console.log(generator.next())
+var person={
+    name:'linyuan',
+    age:29
+}
+function dd(){
+    return 55
+}
+function ss(){
+    setTimeout(() => {
+       return 666
+    }, 5000);
+}
+async function aw(){
+    console.log(dd)
+    
+    await ss()
+    let m =await ss()
+    let res = await dd()
+    console.log(m)
+    console.log(res)
+}
+aw()
+
+    </script>
+</body>
 </html>

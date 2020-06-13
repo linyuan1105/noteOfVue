@@ -28,6 +28,7 @@ export default{
             state.dataArray.map(item=>{
                 item.Dynasties ="源于"+ item.Dynasties
             })
+            return [1,2,5,6,3]
         },
         testGetters:function(state){
             let res = []
@@ -40,8 +41,20 @@ export default{
         }
     },
     mutations: {
+        edit3(state){
+            let p = new Promise(res=>{
+                res('3333')
+            })
+          return  p.then(val=>{
+                console.log(val)
+            })
+            
+        },
+        edit4(state){
+                console.log(444)
+        },
         edit(state){
-                state.name = 'jack'
+                console.log('0000')
             
         },
         another(state,payload){
@@ -50,15 +63,15 @@ export default{
         }
     },
     actions: {
-        edit(context){
-            return new Promise((res,rej)=>{
-                setTimeout(() => {
-                    console.log(context)
-                    context.commit('edit')
-                    res()
-                }, 3000);
-                
-            })
+        edit1(context){
+            debugger
+                console.log(11111)
+            context.commit('edit')
+            
+        },
+        edit2(context){
+                    console.log(222222222)
+                  
             
         }
     }

@@ -1,0 +1,64 @@
+<script>
+
+{
+    
+}
+if(false){
+    function add(){
+        console.log(5)
+    }
+}else{
+    function add(){
+        console.log(6)
+    }
+}
+add()
+let obj = {
+    name:'linyuan',
+    age:{
+        num:24
+    }
+}
+let {age:a}=obj
+// a='lin'
+a.num=100
+console.log(a,obj)
+function dd({x,y}){
+    console.log(x,y)
+}
+dd({n:45})
+
+let m =100
+let resobj = {
+    m,
+    fn(){
+        console.log('ok')
+        return 1000
+    }
+}
+let arr = ["a","b","c","d"]
+let rearr = arr.find(function match(item){
+    return item=='a'||item=='b'
+})
+console.log(rearr,777777777777)
+let k = Object.keys(arr)
+console.log(k)
+let it = arr[Symbol.iterator]()
+console.log(it.next())
+function re(){
+    return new Promise((res,rej)=>{
+        res(5000)
+    })
+}
+function* yir(){
+    let a =  yield  re()
+    console.log(a,555)
+    yield 100
+    console.log(a,555)
+}
+let myir =yir()
+myir.next().value.then(val=>{
+    console.log(val)
+})
+myir.next()
+</script>

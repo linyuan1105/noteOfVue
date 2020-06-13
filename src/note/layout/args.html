@@ -1,0 +1,70 @@
+<script>
+function  hh(){
+    let res = Array.prototype.slice.call(arguments)
+    console.log(res,'res')
+}
+let  agr={
+    name:'pop'
+}
+function pus(x){
+    x.push(7)
+    console.log(x)
+}
+function* foo(x){
+    let y = x*(yield "hello")
+    return y
+}
+
+function con(val){
+    console.log(val)
+}
+let it = foo(6)
+function* something(){
+    var nextVal=1
+    while (true) {
+        nextVal = 3*nextVal
+        yield nextVal
+    }
+} 
+let m =something()
+console.log(m.next())
+console.log(m.next())
+console.log(m.next())
+
+function timer(val){
+    return new Promise(function(res,rej){
+    setTimeout(()=>{
+        console.log(val)
+    res()
+    },val*1000)
+})
+}
+function notasy(){
+    console.log('notasync')
+}
+let p =new Promise(function(res,rej){
+    setTimeout(()=>{
+    res()
+    })
+})
+async function asy(){
+    await timer(1)
+    await timer(3)
+    await timer(2)
+    notasy()
+    p.then(val=>{
+        console.log(val)
+    })
+    
+}
+asy()
+function add(a,b){
+    
+    function squ(x){
+        return x*x
+    }
+    return squ(a)+squ(b)
+}
+add(2,3)
+
+</script>

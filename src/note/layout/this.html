@@ -1,0 +1,38 @@
+<script>
+var obj = {
+    id:"áwsome",
+    cool:()=>{
+       let self= this 
+       console.log(this,11)
+       let m=()=>{
+           console.log(self,22)
+           console.log(this)
+       }
+       m()
+    }
+}
+let op = {
+    lo:'ftt'
+}
+let res = obj.cool
+obj.cool.call(op)
+let ko = ()=>{
+    this.name ='hhhhhhh'
+    console.log(this)
+}
+let o = {}
+class sub{
+    mm = 'opp'
+}
+class animail{
+    constructor(){
+        this.sub=new sub()
+        this.name='lll'
+    }
+    age='26'
+}
+let resnull = null
+console.log(typeof resnull)
+console.log(typeof Object)
+console.log(typeof 5)
+</script>

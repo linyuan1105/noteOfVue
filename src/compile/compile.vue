@@ -1,6 +1,7 @@
 <template>
  <div>
      <button @click="compile">compile</button>
+     <button @click="testhashReq">testhashReq</button>
  </div>
 </template>
 
@@ -8,6 +9,10 @@
     import vue from 'vue'
 export default{
     methods: {
+        testhashReq(){
+                console.log(location.hash)
+                location.hash='#/testRouterMode'
+            },
         compile(){
             let res = vue.compile('<div><span>{{ msg }}</span></div>')
             console.log(res,"res")

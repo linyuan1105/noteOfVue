@@ -1,5 +1,8 @@
 <template>
   <div>
+    {{show}}
+    {{name}}
+    {{firstName}
     <div>{{person.name}}：{{person.age}}</div>
     <button @click="set">set</button>
     <button @click="changeName">changeName</button>
@@ -24,6 +27,11 @@
     <router-link to="slot_scope">查看slot_scope的用法</router-link><br/>
     <router-link to="parent">查看路由嵌套的使用</router-link><br/>
     <router-link to="home">查看element项目</router-link><br/>
+    <router-link to="compvswatch">计算属性VS侦听属性</router-link><br/>
+    <router-link to="fail?pp=100&sdsd=dsds">fail</router-link><br/>
+    <router-link to="element">查看element的table项目</router-link><br/>
+    <router-link to="testRouterMode">testRouterMode</router-link><br/>
+    
     <a href="https://www.runoob.com/w3cnote/css-position-static-relative-absolute-fixed.html">position基础</a>
   </div>
   
@@ -59,8 +67,24 @@ export default {
           person:{
             name:'xiaoming',
             age:'18'
-          }
+          },
+          firstName: 'Foo',
+          lastName: 'Bar',
+          fullName: 'Foo Bar'
       }
+  },
+  computed: {
+    name(){
+      return this.show+'11111111111111'
+    }
+  },
+  watch: {
+    firstName: function (val) {
+      this.fullName = val + ' ' + this.lastName
+    },
+    lastName: function (val) {
+      this.fullName = this.firstName + ' ' + val
+    }
   },
   methods: {
     showBtn(){

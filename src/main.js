@@ -4,6 +4,7 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Vuex from 'vuex';
+console.log(Vuex,'vuex')
 import mystore from '@/Vuex/vuex.js'
 import testApp from './testApp'
 import myPlugin from '@/plugin/myPlugin.js'
@@ -11,9 +12,11 @@ import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import axios from 'axios'
 import VueAxios from 'vue-axios'
-import library from './Library.js'
+// import library from './Library.js'
 import Router from 'vue-router'
-console.log(library)
+import vue from 'vue/dist/vue';
+import vuex from 'vuex/dist/vuex';
+// console.log(library)
 //我猜想的vuex实现思路，
 //首先由于事件有promise，所以猜测会使用一个vue实例作为一个bus总线
 //结合emit和on建立发布订阅的事件模型
@@ -30,10 +33,11 @@ Vue.use(ElementUI)
 Vue.use(Router)
 Vue.use(VueAxios,axios)
 const store = new Vuex.Store(mystore)
+console.log(mystore,'mystore')
 Vue.prototype.func = function(){
   console.log("与插件类似的方法")
 }
-
+console.log(Vue.prototype)
 let myvue = new Vue()
 // console.log(App)
 //使用一个Bus总线来进行事件管理（vue实例）
@@ -43,8 +47,8 @@ Vue.config.productionTip = false
 对于第二种写法的原因：
 在挂载元素之前我们可以进行一些必要的操作
 
-
 第二种挂载  挂载在元素id名为app的元素中。也可以不挂载在app元素中，可直接使用router-link直接查看*/
+
 let res = new Vue({
   el:'#app',
   router,
@@ -52,7 +56,6 @@ let res = new Vue({
   components: { App },
   template: '<App/>'
 })
-
 
 
 
