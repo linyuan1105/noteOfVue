@@ -64,7 +64,6 @@ export default{
     },
     actions: {
         edit1(context){
-            debugger
                 console.log(11111)
             context.commit('edit')
             
