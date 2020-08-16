@@ -48,7 +48,6 @@ function send(message) {
    if (connectedUser) { 
       message.name = connectedUser; 
    } 
-        
    conn.send(JSON.stringify(message)); 
 };
   

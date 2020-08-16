@@ -18,6 +18,9 @@ const slot_scope =()=>import ( '@/slot-scope/slot-scope.vue')
 const parent =()=>import ( '@/note/parent/parent.vue')
 const childrenA =()=>import ( '@/note/children/childrenA.vue')
 const childrenB =()=>import ( '@/note/children/childrenB.vue')
+const es6component =()=>import ( '@/es6/es6_index.vue')
+const VUE_CODE =()=>import ( '@/VUE_CODE/index.vue')
+const dynicroutercomponent = ()=>import('@/dynicrouter/index.vue')
 //element项目的组件
 const home =()=>import ( '@/note/elementProject/home/home.vue')
 import componentA from '@/note/elementProject/component/componentA.vue'
@@ -33,16 +36,21 @@ import foo from './foo.vue'
 import bar from './bar.vue'
 import defaultA from './default.vue'
 import testRouterMode from '@/testhash/index.vue'
-console.log(compvswatch,1111111111111)
+// console.log(compvswatch,1111111111111)
 Vue.use(Router)
 
-export default new Router({
+  let res = new Router({
   mode:'hash',
   routes: [
     {
       path: '/testRouterMode',
       name: 'testRouterMode',
       component: resolve=>(require(["@/testhash/index.vue"],resolve))
+    },
+    {
+      path:'/VUE_CODE',
+      name:'VUE_CODE',
+      component:VUE_CODE
     },
     {
       path:'/fail',
@@ -86,7 +94,7 @@ export default new Router({
         {
           path: 'Algorithm',
           name: 'Algorithm',
-          component: Algorithm
+          component: Algorithm 
         },
         {
           path: 'nodeNote',
@@ -195,8 +203,25 @@ export default new Router({
     {
       path:'/plugin',
       name:'plugin',
-      component:plugin
+      component:plugin 
+    },
+    {//ES6的知识点学习总结
+      path:'/es6component',
+      name:'es6component',
+      component: es6component,
+      children:[
+        
+      ]
     }
 
   ]
 })
+let dynicRouter = [ {
+  
+  path:'/dynicrouter',
+  name:'dynicrouter',
+  component: dynicroutercomponent
+
+}]
+res.addRoutes(dynicRouter)
+export default res

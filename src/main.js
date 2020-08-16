@@ -4,10 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import Vuex from 'vuex';
-console.log(Vuex,'vuex')
 import mystore from '@/Vuex/vuex.js'
 import testApp from './testApp'
-import myPlugin from '@/plugin/myPlugin.js'
+// 尝试自己的plugin
+// import myPlugin from '@/plugin/myPlugin.js'
 import ElementUI from 'element-ui';
 import 'element-ui/lib/theme-chalk/index.css';
 import axios from 'axios'
@@ -27,9 +27,11 @@ import vuex from 'vuex/dist/vuex';
 //插件如同对象，有自己的方法和数据。通过传参的方式，使用插件来管理项目中的数据
 //结合es6中的不同api可以实现自己的事件调用，参数传递
 //vuex插件相对比较复杂，但是基本的写作原理是这样的。所以
-Vue.use(myPlugin)
+// Vue.use(myPlugin)
 Vue.use(Vuex)
 Vue.use(ElementUI)
+
+
 Vue.use(Router)
 Vue.use(VueAxios,axios)
 const store = new Vuex.Store(mystore)
@@ -37,7 +39,6 @@ console.log(mystore,'mystore')
 Vue.prototype.func = function(){
   console.log("与插件类似的方法")
 }
-console.log(Vue.prototype)
 let myvue = new Vue()
 // console.log(App)
 //使用一个Bus总线来进行事件管理（vue实例）

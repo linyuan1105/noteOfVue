@@ -1,6 +1,6 @@
 <template>
  <div>
-     <button @click="compile">compile</button>
+     <button @click="compile" ref="button_one">compile</button>
      <button @click="testhashReq">testhashReq</button>
  </div>
 </template>
@@ -8,6 +8,9 @@
 <script>
     import vue from 'vue'
 export default{
+    mounted() {
+        console.log(this.$refs.button_one)
+    },
     methods: {
         testhashReq(){
                 console.log(location.hash)
